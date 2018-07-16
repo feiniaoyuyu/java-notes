@@ -104,7 +104,7 @@ private static final int INTERRUPTED  = 6;
 ```
 除了开始、结束、取消等这些“完成状态”，还定义了几个中间的瞬时状态。  
 
-这些可能的状态包括：  
+可能的状态转换包括：  
 - NEW -> COMPLETING -> NORMAL
 - NEW -> COMPLETING -> EXCEPTIONAL
 - NEW -> CANCELLED
