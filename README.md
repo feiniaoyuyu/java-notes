@@ -15,7 +15,7 @@ Java 并发
 - [线程控制与线程通信基础](https://github.com/nekolr/java-notes/blob/master/notes/线程控制与线程通信基础.md#线程控制与线程通信基础)
 - [线程安全与线程安全的实现](https://github.com/nekolr/java-notes/blob/master/notes/线程安全与线程安全的实现.md#线程安全与线程安全的实现)
 - [深入 synchronized](https://github.com/nekolr/java-notes/blob/master/notes/深入%20synchronized.md#深入-synchronized)
-- [深入 Lock](https://github.com/nekolr/java-notes/blob/master/notes/深入%20Lock.md#深入-lock)
+- 深入 Lock
     - [Lock 接口](https://github.com/nekolr/java-notes/blob/master/notes/深入%20Lock.md#lock-接口)
     - [LockSupport 工具类](https://github.com/nekolr/java-notes/blob/master/notes/深入%20Lock.md#locksupportjdk-18)
     - [深入 AbstractQueuedSynchronizer](https://github.com/nekolr/java-notes/blob/master/notes/深入%20Lock.md#深入-abstractqueuedsynchronizerjdk-18)
@@ -27,6 +27,7 @@ Java 并发
 - Fork/Join 框架
 - atomic 包
 - 其他并发组件
+    - [Future 模式](https://github.com/nekolr/java-notes/blob/master/notes/Future%20模式.md)
 
 Java 虚拟机  
 
