@@ -874,11 +874,7 @@ private void doAcquireInterruptibly(int arg)
 
 ```java
 /**
-*
-* @param arg the acquire argument.
-* @param nanosTimeout the maximum number of nanoseconds to wait
-* @return {@code true} if acquired; {@code false} if timed out
-* @throws InterruptedException if the current thread is interrupted
+* 独占式影响超时获取锁
 */
 public final boolean tryAcquireNanos(int arg, long nanosTimeout)
         throws InterruptedException {
@@ -1117,10 +1113,6 @@ private void doAcquireSharedInterruptibly(int arg)
 ```java
 /**
 * 响应中断和超时获取锁
-* @param arg the acquire argument.
-* @param nanosTimeout the maximum number of nanoseconds to wait
-* @return {@code true} if acquired; {@code false} if timed out
-* @throws InterruptedException if the current thread is interrupted
 */
 public final boolean tryAcquireSharedNanos(int arg, long nanosTimeout)
         throws InterruptedException {
@@ -1132,10 +1124,6 @@ public final boolean tryAcquireSharedNanos(int arg, long nanosTimeout)
 
 /**
 * Acquires in shared timed mode.
-*
-* @param arg the acquire argument
-* @param nanosTimeout max wait time
-* @return {@code true} if acquired
 */
 private boolean doAcquireSharedNanos(int arg, long nanosTimeout)
         throws InterruptedException {
