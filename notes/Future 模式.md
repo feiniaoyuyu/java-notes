@@ -1,7 +1,7 @@
 - [Future 模式](#future-模式)
     - [Callable 接口](#callable-接口)
     - [Future 接口](#future-接口)
-    - [FutureTask](#futureTask)
+    - [FutureTask](#futuretask)
         - [状态](#状态)
         - [几个重要的属性](#几个重要的属性)
         - [构造方法](#构造方法)
