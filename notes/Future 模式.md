@@ -9,6 +9,7 @@
         - [执行任务](#执行任务)
         - [取消任务](#取消任务)
         - [获取结果](#获取结果)
+    - [简单使用](#简单使用)
     - [总结](#总结)
 
 # Future 模式
@@ -485,6 +486,40 @@ public V get(long timeout, TimeUnit unit)
         throw new TimeoutException();
     return report(s);
 }
+```
+
+## 简单使用
+
+```java
+FutureTask<Integer> task = new FutureTask<>(() -> {
+    int sum = 0;
+    for (int i = 0; i < 100; i++) {
+        sum += i;
+    }
+    return sum;
+});
+
+Thread thread = new Thread(task, "thread-1");
+thread.start();
+
+Integer sum = task.get();
+System.out.println(sum);
+```
+
+```java
+FutureTask<Integer> task = new FutureTask<>(() -> {
+    int sum = 0;
+    for (int i = 0; i < 100; i++) {
+        sum += i;
+    }
+    return sum;
+});
+
+ExecutorService executor = Executors.newSingleThreadExecutor();
+executor.submit(task);
+
+Integer sum = task.get();
+System.out.println(sum);
 ```
 
 ## 总结
