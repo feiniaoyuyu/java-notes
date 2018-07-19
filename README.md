@@ -22,7 +22,7 @@ Java 并发
     - 深入 ReentrantLock
 - [选择 synchronized 还是 ReentrantLock](https://github.com/nekolr/java-notes/blob/master/notes/选择%20synchronized%20还是%20ReentrantLock.md)
 - [深入 ThreadLocal](https://github.com/nekolr/java-notes/blob/master/notes/深入%20ThreadLocal.md)
-- 深入线程池
+- [深入线程池](https://github.com/nekolr/java-notes/blob/master/notes/深入线程池.md)
 - 并发集合类
 - Fork/Join 框架
 - atomic 包
