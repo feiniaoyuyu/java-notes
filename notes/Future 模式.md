@@ -219,8 +219,7 @@ public void run() {
             V result;
             boolean ran;
             try {
-                // 执行 call 方法，很明显，这里会在执行时阻塞，
-                // 直到执行完成
+                // 执行 call 方法，这里是同步执行，直到执行完成才会有返回值
                 result = c.call();
                 ran = true;
             } catch (Throwable ex) {
