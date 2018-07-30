@@ -4,7 +4,7 @@
 > 如果对你有帮助，点个 Star 让作者傻乐呗  
 如果认为有错误，欢迎提交[ Issues ](https://github.com/nekolr/java-notes/issues/new)批评指正  
 
-# Java :coffee:
+## Java :coffee:
 
 Java 基础  
 
@@ -31,7 +31,7 @@ Java 并发
 
 Java 虚拟机  
 
-# 面经 :memo:
+## 面经 :memo:
 - [自如网](https://github.com/nekolr/java-notes/blob/master/notes/面经.md#自如网)
 
 # 关于本仓库
