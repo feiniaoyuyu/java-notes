@@ -32,7 +32,7 @@ Java 并发
 Java 虚拟机  
 
 # 面经📝
-- [自如网](https://github.com/nekolr/java-notes/blob/master/notes/自如网.md#自如网)
+- [自如网](https://github.com/nekolr/java-notes/blob/master/notes/面经.md#自如网)
 
 # 关于本仓库
 
