@@ -13,19 +13,20 @@ private final ReentrantLock lock = new ReentrantLock();
 private final Condition trip = lock.newCondition();
 /** 需要同时到达 barrier 的线程个数 */
 private final int parties;
-/* 当 parties 个线程都到达公共屏障点（都调用了 await 方法）时，最后一个调用 await 的线程会执行的动作 */
+/** 当 parties 个线程都到达公共屏障点（都调用了 await 方法）时，最后一个调用 await 的线程会执行的动作 */
 private final Runnable barrierCommand;
 /** 当前的 Generation，每当屏障打破之后都会重新更新，从而实现重置 */
 private Generation generation = new Generation();
+/** 剩下还未到达 barrier 状态的线程数量 */
+private int count;
+```
+
+```java
 /** 用来判断 CyclicBarrier 的状态 */
 private static class Generation {
     // 表示当前的屏障是否被打破
     boolean broken = false;
 }
-/**
-* 剩下还未到达 barrier 状态的线程数量
-*/
-private int count;
 ```
 
 # 构造方法
