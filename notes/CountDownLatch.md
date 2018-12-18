@@ -144,21 +144,22 @@ public static void main(String[] args) throws InterruptedException {
 
     final CountDownLatch latch = new CountDownLatch(10);
 
-    long start = System.currentTimeMillis();
+        long start = System.currentTimeMillis();
 
-    for (int i = 0; i < 10; i++) {
-        new Thread(() -> {
-            long count = 0;
-            for (int j = 0; j < 90000000; j++) {
-                count += j;
-            }
-            System.out.println("count=" + count);
-            latch.countDown();
-        }).start();
-    }
-    // 当前线程阻塞
-    latch.await();
+        for (int i = 0; i < 10; i++) {
+            new Thread(() -> {
+                long count = 0;
+                for (int j = 0; j < 90000000; j++) {
+                    count += j;
+                }
+                System.out.println(Thread.currentThread().getName() + "：count=" + count);
+                latch.countDown();
+            }, "thread-" + i).start();
+        }
+        // 当前线程阻塞
+        latch.await();
 
-    System.out.println("所有线程执行耗时(ms)：" + (System.currentTimeMillis() - start));
+        System.out.println(Thread.currentThread().getName() +
+                "：所有线程执行耗时(ms)：" + (System.currentTimeMillis() - start));
 }
 ```
