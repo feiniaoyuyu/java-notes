@@ -1,3 +1,10 @@
+- [CyclicBarrier](#cyclicbarrier)
+    - [属性和内部类](#属性和内部类)
+    - [构造方法](#构造方法)
+    - [await](#await)
+    - [其他方法](#其他方法)
+    - [简单示例](#简单示例)
+
 CyclicBarrier 同样也是 JDK 1.5 提供的一个同步辅助工具类，从字面理解为回环栅栏，它允许一组线程互相等待，直到它们都到达某个状态之后再全部同时执行。这个状态被称为公共屏障点（common barrier point），而叫做回环是因为当所有等待的线程都被释放后，CyclicBarrier 可以被重用。  
 
 需要注意的是，CyclicBarrier 与 CountDownLatch 比较容易混淆，它俩的不同之处在于：  
@@ -250,6 +257,33 @@ public int getNumberWaiting() {
         return parties - count;
     } finally {
         lock.unlock();
+    }
+}
+```
+
+# 简单示例
+```java
+public static void main(String[] args) {
+
+    final int NUM = 5;
+
+    CyclicBarrier cyclicBarrier = new CyclicBarrier(NUM, () -> 
+            System.out.println(Thread.currentThread().getName() + " 所有线程数据准备完毕..."));
+
+    for (int i = 0; i < NUM; i++) {
+        new Thread(() -> {
+            System.out.println(Thread.currentThread().getName() + " 正在准备数据...");
+            try {
+                // 模拟准备数据
+                TimeUnit.SECONDS.sleep(3);
+                // 相互等待
+                cyclicBarrier.await();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (BrokenBarrierException e) {
+                e.printStackTrace();
+            }
+        }, "thread-" + i).start();
     }
 }
 ```
