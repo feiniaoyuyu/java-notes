@@ -28,6 +28,7 @@ Java 并发
 - atomic 包
 - 其他并发组件
     - [Future 模式](https://github.com/nekolr/java-notes/blob/master/notes/Future%20模式.md)
+    - [CountDownLatch](https://github.com/nekolr/java-notes/blob/master/notes/CountDownLatch.md)
 
 Java 虚拟机  
 

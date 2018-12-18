@@ -342,11 +342,11 @@ AQS（AbstractQueuedSynchronizer）是用来构建锁和同步器（Synchronizer
 AQS 中使用一个 volatile 修饰的 int 型变量表示同步状态，通过 FIFO 同步队列实现线程的排队，通过 Unsafe 类实现底层的等待和唤醒操作，通过 ConditionObject 实现条件变量控制。  
 
 ## 几个重要属性
-AQS 中维护着几个重要的变量，包括同步状态、FIFO 队列头结点和尾节点、一些偏移量。  
+AQS 中维护着几个重要的变量，包括同步状态、FIFO 队列头节点和尾节点、一些偏移量。  
 
 ```java
 /**
-* 队列头结点，在第一次调用 enq() 方法时会初始化，可以通过setHead() 方法修改
+* 队列头节点，在第一次调用 enq() 方法时会初始化，可以通过setHead() 方法修改
 */
 private transient volatile Node head;
 
@@ -363,7 +363,7 @@ private volatile int state;
 private static final Unsafe unsafe = Unsafe.getUnsafe();
 // 线程状态 state 的偏移量
 private static final long stateOffset;
-// 队列头结点 head 的偏移量
+// 队列头节点 head 的偏移量
 private static final long headOffset;
 // 队列尾节点 tail 的偏移量
 private static final long tailOffset;
@@ -459,7 +459,7 @@ static final class Node {
     * 
     * 4、PROPAGATE
     * 一个 releaseShared 应该被传播到其他节点，在 doReleaseShared 中设置
-    * （仅用于头结点）来确保传播继续。
+    * （仅用于头节点）来确保传播继续。
     *
     * 5、0
     * 非负值意味着节点不需要信号，正常同步节点初始化时为 0。
@@ -612,7 +612,7 @@ p.next = null;
 - 共享模式出队列  
 ```java
 /**
-* 共享模式出队列，设置头结点并在满足条件时继续唤醒后续节点
+* 共享模式出队列，设置头节点并在满足条件时继续唤醒后续节点
 *
 * @param node the node
 * @param propagate the return value from a tryAcquireShared
@@ -1590,7 +1590,7 @@ public final boolean awaitUntil(Date deadline)
 ```
 
 ### signal
-从条件队列中唤醒一个节点（头结点）。  
+从条件队列中唤醒一个节点（头节点）。  
 
 ```java
 /**
